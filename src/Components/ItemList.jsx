@@ -6,6 +6,7 @@ import { InputTesk } from './InputTesk';
 const ItemList = () => {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     const savedItems = localStorage.getItem('items');
@@ -15,6 +16,13 @@ const ItemList = () => {
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
+
+  useEffect(()=>{
+    const intervalId = setInterval(()=> {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(intervalId);
+  },[]);
 
   const addItem = () => {
     if (newItem.trim() !== '') {
@@ -31,6 +39,9 @@ const ItemList = () => {
     <div className="container">
       <div className="addTask">
         <h1>TODO-List</h1>   
+      <div className="clock">
+        Hora atual: {currentTime.toLocaleTimeString()}
+      </div>
         <InputTesk
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
