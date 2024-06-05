@@ -1,0 +1,51 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica;
+  box-sizing: border-box;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(assets/todolist.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.container{
+  text-align: center;
+  width: 450px;
+  background-color: rgba(15, 15, 15, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(5, 5, 5, 0.2);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+.btnAddTesk{
+  margin-left: 20px;
+  height: 30px;
+  margin: 10px;
+  order: 1px solid black;  
+}
+.btnRemoveTask{
+  margin-left: 10px;
+  color: red;
+
+}
+
+.inputTesk{
+  height: 30px;
+  width: 200px;
+}
+
+.task {
+  margin: 10px;
+}
