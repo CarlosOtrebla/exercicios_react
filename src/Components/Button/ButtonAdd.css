@@ -1,0 +1,22 @@
+.btnAddTask{
+  color: aliceblue;
+  margin-left: 20px;
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(5, 5, 5, 0.2);
+  background-color: rgba(189, 187, 187, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.btnAddTask:hover {
+  cursor: pointer;
+  color: rgb(5, 5, 5);
+}
+
+.btnAddTask:active{
+  transform:scale(0.9);
+  color: aliceblue;
+  
+}

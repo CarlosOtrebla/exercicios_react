@@ -29,12 +29,7 @@
   margin-bottom: 20px;
 }
 
-.btnAddTesk{
-  margin-left: 20px;
-  height: 30px;
-  margin: 10px;
-  order: 1px solid black;  
-}
+
 .btnRemoveTask{
   margin-left: 10px;
   color: red;

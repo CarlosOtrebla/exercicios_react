@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemList from './ItemList';
+
 
 export const InputTesk = ({ value, onChange, placeholder }) => {
   return (

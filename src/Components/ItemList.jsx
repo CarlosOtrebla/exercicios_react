@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { InputTesk } from './InputTesk';
+import { ButtonAdd } from './Button/ButtonAdd';
 
-const ItemList = () => {
-  const [items, setItems] = useState([]);
+export const ItemList = () => {
+  const list = [
+    'Estudar React',
+    'Estudar os Hooks do React',
+    'Estudar Typescript',
+    'Lembrar de tomar café',
+  ];
+  const [items, setItems] = useState([...list]);
   const [newItem, setNewItem] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -17,45 +25,45 @@ const ItemList = () => {
     localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
-  useEffect(()=>{
-    const intervalId = setInterval(()=> {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(intervalId);
-  },[]);
-
-  const addItem = () => {
-    if (newItem.trim() !== '') {
-      setItems([...items, newItem]);
-      setNewItem('');
-    }
-  };
+  }, []);
 
   const removeItem = (indexToRemove) => {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
 
   return (
-    <div className="container">
-      <div className="addTask">
-        <h1>TODO-List</h1>   
-      <div className="clock">
-        Hora atual: {currentTime.toLocaleTimeString()}
-      </div>
+    <div className='container'>
+      <div className='addTask'>
+        <h1>TODO-List</h1>
+        <div className='clock'>
+          Hora atual: {currentTime.toLocaleTimeString()}
+        </div>
         <InputTesk
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder='Adicione nova tarefa'
         />
-        <button className="btnAddTesk" onClick={addItem}>
-          <FontAwesomeIcon icon={faPlus}/>
-        </button>
+        <ButtonAdd
+          items={items}
+          setItems={setItems}
+          newItem={newItem}
+          setNewItem={setNewItem}
+        />
       </div>
-      <ol className="tasks">
+      <ol className='tasks'>
         {items.map((item, index) => (
-          <li className="task" key={index}>
+          <li className='task' key={index}>
             {item}
-            <button className="btnRemoveTask" onClick={() => removeItem(index)}>X</button>
+            <FontAwesomeIcon
+              icon={faTrashArrowUp}
+              className='btnRemoveTask'
+              onClick={() => removeItem(index)}
+            />
           </li>
         ))}
       </ol>
@@ -63,4 +71,4 @@ const ItemList = () => {
   );
 };
 
-export default ItemList;
+
