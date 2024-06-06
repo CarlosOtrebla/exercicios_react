@@ -7,6 +7,7 @@ import { ButtonAdd } from './Button/ButtonAdd';
 import  {SearchField}  from './Inputs/SearchField/SearchField';
 import {Clock} from './Clock/Clock';
 import { UseLocalStorage } from './UseLocalStorage';
+import ColorChanger from './Button/BtnChangeColor';
 
 
 export const TodoList = () => {
@@ -17,7 +18,6 @@ export const TodoList = () => {
     'Lembrar de tomar café',
   ];
   const [items, setItems] = UseLocalStorage('items',[...list]);
-  // const [items, setItems] = useState([...list]);
   const [newItem, setNewItem] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -35,7 +35,9 @@ export const TodoList = () => {
   };
 
   return (
-    <div className='container'>
+    <div className='container'
+    >
+          <ColorChanger/>
         <h1>TODO-List</h1>
         <Clock/>
       <div  className='addTask'>
