@@ -11,6 +11,7 @@ export function ButtonAdd({ items, setItems, newItem, setNewItem }) {
       setNewItem('');
     }
   };
+  
 
   return (
     <button className='btnAddTask' onClick={addItem}>

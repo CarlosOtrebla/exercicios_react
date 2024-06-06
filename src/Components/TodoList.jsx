@@ -6,6 +6,7 @@ import { InputTesk } from './Inputs/InputTesk/InputTesk';
 import { ButtonAdd } from './Button/ButtonAdd';
 import  {SearchField}  from './Inputs/SearchField/SearchField';
 import {Clock} from './Clock/Clock';
+import { UseLocalStorage } from './UseLocalStorage';
 
 
 export const TodoList = () => {
@@ -15,7 +16,8 @@ export const TodoList = () => {
     'Estudar Typescript',
     'Lembrar de tomar café',
   ];
-  const [items, setItems] = useState([...list]);
+  const [items, setItems] = UseLocalStorage('items',[...list]);
+  // const [items, setItems] = useState([...list]);
   const [newItem, setNewItem] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -34,23 +36,21 @@ export const TodoList = () => {
 
   return (
     <div className='container'>
-      <div className='addTask'>
-        <Clock/>
-        <SearchField/>
         <h1>TODO-List</h1>
+        <Clock/>
+      <div  className='addTask'>
         <InputTesk
           className="filteredTesk"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder='Adicione nova tarefa'
-        />
+          />
         <ButtonAdd
           items={items}
           setItems={setItems}
           newItem={newItem}
           setNewItem={setNewItem}
-        />
-      </div>
+          />
       <ol className='tasks'>
         {items.map((item, index) => (
           <li className='task' key={index}>
@@ -59,10 +59,12 @@ export const TodoList = () => {
               icon={faTrashArrowUp}
               className='btnRemoveTask'
               onClick={() => removeItem(index)}
-            />
+              />
           </li>
         ))}
       </ol>
+      </div>
+      <SearchField items={items} setItems={setItems} />
     </div>
   );
 };
