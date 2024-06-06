@@ -1,14 +1,15 @@
-:root{
+:root {
   --bg_Color:
 }
-*{
+
+* {
   margin: 0px;
   padding: 0px;
   font-family: Helvetica;
   box-sizing: border-box;
 }
 
-.App{
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,20 +18,20 @@
   background-size: cover;
   background-position: center;
   background-color: var(--bg_Color)
-  
 }
-h1{
+
+h1 {
   color: rgba(0, 0, 0, 0.658);
   margin: 15px 0px;
   width: 100%;
 }
 
-.container{
+.container {
   text-align: center;
   width: 450px;
   background-color: rgba(15, 15, 15, 0.15);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(5, 5, 5, 0.2);
+  border: 2px solid var(--bg_Color);
   padding: 40px;
   border-radius: 10px;
 }
@@ -38,13 +39,14 @@ h1{
 .container h1 {
   margin-bottom: 20px;
 }
-.btnRemoveTask{
+
+.btnRemoveTask {
   margin-left: 10px;
   color: red;
 
 }
 
-.inputTesk{
+.inputTesk {
   height: 30px;
   width: 200px;
 }
@@ -55,17 +57,14 @@ h1{
   justify-content: space-between;
   background-color: rgba(15, 15, 15, 0.15);
   border: 2px solid rgba(5, 5, 5, 0.2);
-  margin:8px;
+  margin: 8px;
   list-style-type: none;
   border-radius: 15px;
 }
 
-.addTask{
+.addTask {
   justify-content: space-between;
   /* background-color: rgba(15, 15, 15, 0.15); */
   border: 2px solid rgba(5, 5, 5, 0.2);
   border-radius: 15px;
 }
-
-
-

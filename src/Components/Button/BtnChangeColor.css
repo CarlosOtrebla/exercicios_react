@@ -1,6 +1,5 @@
-.trocaCor{
+.trocaCor {
   color: var(--bg_Color);
-
   height: 30px;
   width: max-content;
   padding: 0px 5px;

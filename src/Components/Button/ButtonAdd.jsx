@@ -10,8 +10,7 @@ export function ButtonAdd({ items, setItems, newItem, setNewItem }) {
       setItems([...items, newItem]);
       setNewItem('');
     }
-  };
-  
+  };  
 
   return (
     <button className='btnAddTask' onClick={addItem}>
