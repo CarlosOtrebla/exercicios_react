@@ -1,10 +1,10 @@
 import React from 'react';
-
+import './inputTesk.css'
 
 export const InputTesk = ({ value, onChange, placeholder }) => {
   return (
     <input
-      className="inputTesk"
+      className='input'
       type="text"
       value={value}
       onChange={onChange}

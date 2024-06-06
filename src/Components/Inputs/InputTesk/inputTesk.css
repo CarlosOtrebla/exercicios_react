@@ -1,0 +1,22 @@
+.filteredTesk{
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(15, 15, 15, 0.15);
+  border: 2px solid rgba(5, 5, 5, 0.2);
+  margin:8px;
+  list-style-type: none;
+  border-radius: 15px;
+  
+}
+
+.input {
+  width: 200px;
+  padding: 8px 10px;
+  justify-content: space-between;
+  background-color: rgba(250, 254, 255, 0.61);
+  border: 2px solid rgba(5, 5, 5, 0.2);
+  margin:8px;
+  list-style-type: none;
+  border-radius: 15px;
+}

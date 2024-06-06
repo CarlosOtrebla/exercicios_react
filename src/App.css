@@ -13,6 +13,12 @@
   background-image: url(assets/todolist.png);
   background-size: cover;
   background-position: center;
+  
+}
+h1{
+  color: rgba(0, 0, 0, 0.658);
+  margin: 15px 0px;
+  width: 100%;
 }
 
 .container{
@@ -28,8 +34,6 @@
 .container h1 {
   margin-bottom: 20px;
 }
-
-
 .btnRemoveTask{
   margin-left: 10px;
   color: red;
@@ -42,5 +46,16 @@
 }
 
 .task {
-  margin: 10px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(15, 15, 15, 0.15);
+  border: 2px solid rgba(5, 5, 5, 0.2);
+  margin:8px;
+  list-style-type: none;
+  border-radius: 15px;
+
 }
+
+
+

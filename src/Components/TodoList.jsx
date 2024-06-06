@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { InputTesk } from './InputTesk';
+import { InputTesk } from './Inputs/InputTesk/InputTesk';
 import { ButtonAdd } from './Button/ButtonAdd';
+import  {SearchField}  from './Inputs/SearchField/SearchField';
+import {Clock} from './Clock/Clock';
 
-export const ItemList = () => {
+
+export const TodoList = () => {
   const list = [
     'Estudar React',
     'Estudar os Hooks do React',
@@ -25,13 +28,6 @@ export const ItemList = () => {
     localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
   const removeItem = (indexToRemove) => {
     setItems(items.filter((_, index) => index !== indexToRemove));
   };
@@ -39,11 +35,11 @@ export const ItemList = () => {
   return (
     <div className='container'>
       <div className='addTask'>
+        <Clock/>
+        <SearchField/>
         <h1>TODO-List</h1>
-        <div className='clock'>
-          Hora atual: {currentTime.toLocaleTimeString()}
-        </div>
         <InputTesk
+          className="filteredTesk"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder='Adicione nova tarefa'
@@ -70,5 +66,3 @@ export const ItemList = () => {
     </div>
   );
 };
-
-
